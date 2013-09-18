@@ -50,7 +50,7 @@
 			vertical:		false,
 			speed: 			800,
 			auto:			false,
-			pause:			2000,
+			pause:			3500,
 			continuous:		false, 
 			numeric: 		false,
 			numericId: 		'controls'
