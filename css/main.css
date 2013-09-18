@@ -415,6 +415,9 @@ img { max-width: 100%; }
        
     .container { width: 768px; }
 
+    nav ul#icons { margin-top: 12px; padding-right: 20px;} 
+    nav ul { float: right; list-style-type: none; margin-left: 210px; margin-top: 15px; }
+  
 }
 
 @media only screen and (max-width: 767px) {
