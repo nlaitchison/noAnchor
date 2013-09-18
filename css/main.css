@@ -45,6 +45,13 @@ section{
 	padding: 10px 20px 10px 20px;
 }
 
+ .container{ 
+ 	position: relative; 
+ 	width: 960px; 
+ 	margin: 0 auto; 
+ 	padding: 0;
+ }
+
 /* ---------------------------------------------------------------------------------------------------
 		∆ Header
 ---------------------------------------------------------------------------------------------------*/
@@ -188,6 +195,7 @@ ul#icons li a#insta:hover {
 #main_content{
 	background-color: #f1f1f1;
 	padding: 0;
+	margin-top: 80px;
 }
 
 section#kickstart{
@@ -343,6 +351,7 @@ footer{
 	padding: 40px 0;
 	background-color: #161616;
 	font: 22px 'FestivoLettersNo1';
+	overflow: hidden;
 }
 
 h2{
