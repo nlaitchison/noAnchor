@@ -5,7 +5,7 @@ $field_color = $_POST['cf_color'];
 $field_message = $_POST['cf_message'];
 
 $mail_to = 'noanchor@live.com';
-$subject = 'Message from a site visitor '.$field_name;
+$subject = 'NoAnchor Contact Form Messgae: '.$field_name;
 
 $body_message = 'From: '.$field_name."\n";
 $body_message .= 'E-mail: '.$field_email."\n";
@@ -19,14 +19,15 @@ $mail_status = mail($mail_to, $subject, $body_message, $headers);
 
 if ($mail_status) { ?>
 	<script language="javascript" type="text/javascript">
-		alert('Thank you for the message. We will contact you shortly.');
+		alert('Thanks for contacting us. You\'ll hear back from us shortly!');
 		window.location = 'http://noanchor.com';
 	</script>
 <?php
 }
 else { ?>
 	<script language="javascript" type="text/javascript">
-		alert('Message failed. Please, send an email to gordon@template-help.com');
+		//alert('Message failed. Please, send an email to gordon@template-help.com');
+		alert('Message failed... You can email us at noanchor@live.com!);
 		window.location = 'http://noanchor.com';
 	</script>
 <?php

@@ -75,7 +75,7 @@ header, header a, nav a{
 #header_texture{
 	margin: -42px auto 0 auto;
 	height: 14px;
-	width: 1156px;
+	width: 100%; /*1156px*/
 	background: url(../images/na_header.png) no-repeat top center;
 }
 
@@ -362,6 +362,7 @@ h2{
 #contact_form{
 	padding: 45px 0 0 65px;
 	float: left;
+	width: 35%;
 }
 
 #input_text input, #input_text textarea{
@@ -388,9 +389,10 @@ h2{
 
 }
 
-footer img{
+footer #howard{
 	float: right;
 	padding-right: 60px;
+	width: 40%;
 }
 
 
@@ -403,6 +405,29 @@ a img { border: 0; }
 img { max-width: 100%; }
 
 .clear_fix { clear: both; }
+
+
+/* ---------------------------------------------------------------------------------------------------
+		∆ Media Queries
+---------------------------------------------------------------------------------------------------*/
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+       
+    .container { width: 768px; }
+
+}
+
+@media only screen and (max-width: 767px) {
+
+    .container { width: 300px; }
+
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    
+    .container { width: 420px; }
+
+}
 
 
 /* ---------------------------------------------------------------------------------------------------
