@@ -424,6 +424,15 @@ img { max-width: 100%; }
 
     .container { width: 300px; }
 
+    #header_bottom{ height: 70px;}
+    #header_texture{ margin-top: -78px;}
+
+    nav ul#icons { margin-top: -28px; padding-right: 0;} 
+    nav ul { clear:both; list-style-type: none; margin: 10px 0 0;}
+    nav ul li {margin: 0 20px;}
+
+    #main_content{ margin-top: 116px;}
+
 }
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
