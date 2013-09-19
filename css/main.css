@@ -452,6 +452,7 @@ img { max-width: 100%; }
     #contact_form { float: left; padding: 35px 0 0 30px; width: 78%; }
 
     nav ul li{ margin: 0 14px; }
+    nav ul#icons { padding-right: 60px; }
 
    /* #header_texture{ display: none; }
     #header_bottom{ margin-top: 0; height: 300px; }
