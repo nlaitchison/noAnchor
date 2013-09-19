@@ -449,9 +449,9 @@ img { max-width: 100%; }
     
     .container { width: 420px; }
 
-    #contact_form { float: left; padding: 35px 0 0 50px; width: 100%;}
+    #contact_form { float: left; padding: 35px 0 0 30px; width: 78%;}
 
-    footer #howard{ float: left; width: 100%; padding-top: 30px;}
+    footer #howard{ float: left; width: 100%; padding: 30px 0 0;}
 
 }
 
