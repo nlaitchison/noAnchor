@@ -79,16 +79,4 @@ $(function(){
 		}
 	);
 
-
-
-	// $(".company.energy").hover(
-	// 	function() {
-	// 		console.log('over');
-	// 		$(".company.energy .company-text").addClass( "current" );
-	// 	}, function() {
-	// 		console.log('off');
-	// 		$(".company.energy .company-text").removeClass( "current" );
-	// 	}
-	// );
-
 });

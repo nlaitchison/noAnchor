@@ -52,7 +52,7 @@ li{
 #overlay-container{
   box-sizing: border-box;
   height: 100%;
-  width: 100%%;
+  width: 100%;
   top: -380px;
   position: relative;
   overflow: hidden;
@@ -225,6 +225,7 @@ nav li:last-child{
   color: rgba(255,255,255, .5);
   letter-spacing: .5px;
   margin-bottom: 15px;
+  -webkit-appearance:none
 }
 
 .contact-no-anchor textarea{
@@ -237,6 +238,7 @@ nav li:last-child{
   width: 200px;
   margin: 0 auto;
   text-align: center;
+  -webkit-appearance:none
 }
 
 .opacity{
