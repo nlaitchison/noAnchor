@@ -1,79 +1,132 @@
-/* Space out content a bit */
-body {
+/* --------------------------------------------------------------------------------------------------
+	
+	No Anchor Project 
+	Nicole Aitchison
+	
+-------------------------------------------------------------------------------------------------- */
+
+
+/* General ----------------- */
+
+
+html,body,div,form,fieldset,legend,label,h1,h2,h3,h4,h5,h6,p,ul,dl,dt,dd,figure,figcaption {
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font: 16px/30px Helvetica, sans-serif;
+	color: #fff;
+	letter-spacing: .5px;
+}
+
+ul{
+	list-style-type: none;
+}
+
+li{
+	float: left;
+}
+
+.clear-fix{
+	clear: both;
+}
+
+
+/* Header & Navigation ----------------- */
+
+
+header{
+	box-sizing: border-box;
+	position: static;
+}
+
+#icons, #icons ul{
+  float: right;
+}
+
+#icons{
+  position: absolute;
   padding-top: 20px;
-  padding-bottom: 20px;
+  right: 1.2%;
+  z-index: 2;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
+#icons ul{
+  float: right;
 }
 
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-}
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  padding-bottom: 19px;
+#icons li{
+  padding-right: 8px;
+  cursor: pointer;
 }
 
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
+
+/* Landing ----------------- */
+
+
+#landing{
+	box-sizing: border-box;
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	padding: 10px;
 }
 
-/* Customize container */
-@media (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
-}
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-}
-.jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
+#landing .background{
+	box-sizing: border-box;
+	background: url(../images/SMALL_32C_30LOS.gif) no-repeat top center;
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
 }
 
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-}
-.marketing p + h4 {
-  margin-top: 28px;
+.blur{
+   -webkit-filter: blur(4px);
+  -moz-filter: blur(4px);
+  -o-filter: blur(4px);
+  -ms-filter: blur(4px);
+  filter: blur4px);
+
+  -webkit-transition:all .5s ease-in-out;
+  -moz-transition:all .5s ease-in-out;
+  -o-transition:all .5s ease-in-out;
+  transition:all .5s ease-in-out;
+
+  opacity: .7;
 }
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
+
+/* Fonts ----------------- */
+
+
+@font-face {
+    font-family: 'akzidenz-grotesk_condensed_Rg';
+    src: url('../fonts/akzidenz_grotesk_r_condensed_medium_italic-webfont.eot');
+    src: url('../fonts/akzidenz_grotesk_r_condensed_medium_italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/akzidenz_grotesk_r_condensed_medium_italic-webfont.woff2') format('woff2'),
+         url('../fonts/akzidenz_grotesk_r_condensed_medium_italic-webfont.woff') format('woff'),
+         url('../fonts/akzidenz_grotesk_r_condensed_medium_italic-webfont.ttf') format('truetype'),
+         url('../fonts/akzidenz_grotesk_r_condensed_medium_italic-webfont.svg#akzidenz-grotesk_condensed_Rg') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
+
+
+/* Media Queries ----------------- */
+
+
+@media only screen and (max-width: 600px){
+  .about-no-anchor, .contact-no-anchor { width: 400px; }
+}
+
+@media only screen and (max-width: 550px){
+  .about-no-anchor, .contact-no-anchor { width: 300px; padding-top: 105px; }
+  header { padding-top: 200px; }
+  #overlay-container { top: -280px; }
+}
+
+
+
+
