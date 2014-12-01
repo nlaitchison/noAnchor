@@ -15,9 +15,24 @@ html,body,div,form,fieldset,legend,label,h1,h2,h3,h4,h5,h6,p,ul,dl,dt,dd,figure,
 }
 
 body{
-	font: 16px/30px Helvetica, sans-serif;
-	color: #fff;
+	font: 15px/26px Helvetica, sans-serif;
+	font-weight: lighter;
+	color: #f1eeef;
 	letter-spacing: .5px;
+}
+
+h1, h2, h3{
+	font-family:'akzidenz-grotesk_condensed_Rg', helvetica, sans-serif;
+	text-transform: uppercase;
+}
+
+h1{
+	font-size: 60px;
+}
+
+h2{
+	font-size: 45px;
+	padding-bottom: 20px;
 }
 
 ul{
@@ -32,13 +47,22 @@ li{
 	clear: both;
 }
 
+.center-text{
+	text-align: center;
+}
+
+.background-red{
+	background-color: #96302e;
+}
+
 
 /* Header & Navigation ----------------- */
 
 
 header{
 	box-sizing: border-box;
-	position: static;
+	position: fixed;
+	z-index: 8;
 }
 
 #icons, #icons ul{
@@ -46,10 +70,9 @@ header{
 }
 
 #icons{
-  position: absolute;
+  position: fixed;
   padding-top: 20px;
   right: 1.2%;
-  z-index: 2;
 }
 
 #icons ul{
@@ -71,15 +94,22 @@ header{
 	height: 100vh;
 	overflow: hidden;
 	padding: 10px;
+	position: fixed;
+	z-index: -5;
 }
 
 #landing .background{
+	position: static;
 	box-sizing: border-box;
 	background: url(../images/SMALL_32C_30LOS.gif) no-repeat top center;
 	background-size: cover;
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
+}
+
+#landing h1{
+	margin-top: 42vh;
 }
 
 .blur{
@@ -97,6 +127,68 @@ header{
   opacity: .7;
 }
 
+#about{
+	height: 300px;
+	padding-top: 100vh;
+	background: -moz-linear-gradient(top,  rgba(44,42,42,0) 0%, rgba(44,42,42,0) 1%, rgba(44,42,42,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(44,42,42,0)), color-stop(1%,rgba(44,42,42,0)), color-stop(100%,rgba(44,42,42,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(44,42,42,0) 0%,rgba(44,42,42,0) 1%,rgba(44,42,42,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(44,42,42,0) 0%,rgba(44,42,42,0) 1%,rgba(44,42,42,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(44,42,42,0) 0%,rgba(44,42,42,0) 1%,rgba(44,42,42,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(44,42,42,0) 0%,rgba(44,42,42,0) 1%,rgba(44,42,42,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#002c2a2a', endColorstr='#2c2a2a',GradientType=0 ); /* IE6-9 */
+}
+
+
+#videos .info{
+	padding: 50px 0 30px 50px;
+}
+
+
+/* Grid ----------------- */
+
+.sub-container{
+  margin-top: 10px;
+}
+
+.grid-container{
+ /*  width: 84%; */ /* 73.68% 1050px*/
+   width: 100%;
+  margin: 0 auto;
+  clear: both;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.columns{
+  float: left;
+  box-sizing: border-box;
+  padding: 0 1.5%;
+}
+
+.left{
+  box-sizing: border-box;
+  padding-right: 15px;
+}
+
+.right{
+  box-sizing: border-box;
+  padding-left: 15px;
+}
+
+/* 12 column grid */
+.one    { width: 8.33%; }
+.two    { width: 16.66%; }
+.three  { width: 25%; }     /* quarter */
+.four   { width: 33.32%; }  /* third */
+.five   { width: 41.65%; }
+.six    { width: 50%; }     /* half */
+.seven  { width: 58.31%; }
+.eight  { width: 66.64%; }
+.nine   { width: 75%; }     /* two thirds */
+.ten    { width: 83.3%; }
+.eleven { width: 91.63%; }
+.twelve { width: 100%; }
 
 /* Fonts ----------------- */
 
@@ -118,13 +210,11 @@ header{
 
 
 @media only screen and (max-width: 600px){
-  .about-no-anchor, .contact-no-anchor { width: 400px; }
+
 }
 
 @media only screen and (max-width: 550px){
-  .about-no-anchor, .contact-no-anchor { width: 300px; padding-top: 105px; }
-  header { padding-top: 200px; }
-  #overlay-container { top: -280px; }
+
 }
 
 
