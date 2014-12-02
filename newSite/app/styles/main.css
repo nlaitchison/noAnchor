@@ -15,10 +15,10 @@ html,body,div,form,fieldset,legend,label,h1,h2,h3,h4,h5,h6,p,ul,dl,dt,dd,figure,
 }
 
 body{
-	font: 15px/26px Helvetica, sans-serif;
+	font: 18px/30px Helvetica, sans-serif;
 	font-weight: lighter;
 	color: #f1eeef;
-	letter-spacing: .5px;
+	/* letter-spacing: .5px; */
 }
 
 h1, h2, h3{
@@ -32,7 +32,11 @@ h1{
 
 h2{
 	font-size: 45px;
-	padding-bottom: 20px;
+	padding-bottom: 10px;
+}
+
+p{
+	padding: 10px 0;
 }
 
 ul{
@@ -52,7 +56,26 @@ li{
 }
 
 .background-red{
-	background-color: #96302e;
+	background-color: #843232;
+}
+
+button{
+	letter-spacing: 1px;
+	border: none;
+	border-radius: 2px;
+	padding: 8px 12px;
+	font: 23px 'akzidenz-grotesk_condensed_Rg', helvetica, sans-serif;
+	text-transform: uppercase;
+	color: #f1eeef;
+	margin-top: 10px;
+	cursor: pointer;
+}
+
+button.grey-btn{
+	background-color: RGBA(80,80,80, .8);
+}
+button.red-btn{
+	background-color: RGBA(132,50,50, .8);
 }
 
 
@@ -93,7 +116,7 @@ header{
 	width: 100%;
 	height: 100vh;
 	overflow: hidden;
-	padding: 10px;
+	/* padding: 10px; */
 	position: fixed;
 	z-index: -5;
 }
@@ -117,7 +140,7 @@ header{
   -moz-filter: blur(4px);
   -o-filter: blur(4px);
   -ms-filter: blur(4px);
-  filter: blur4px);
+  filter: blur(4px);
 
   -webkit-transition:all .5s ease-in-out;
   -moz-transition:all .5s ease-in-out;
@@ -128,8 +151,8 @@ header{
 }
 
 #about{
-	height: 300px;
-	padding-top: 100vh;
+	/* height: 300px; */
+	padding: 100vh 0 90px;
 	background: -moz-linear-gradient(top,  rgba(44,42,42,0) 0%, rgba(44,42,42,0) 1%, rgba(44,42,42,1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(44,42,42,0)), color-stop(1%,rgba(44,42,42,0)), color-stop(100%,rgba(44,42,42,1))); /* Chrome,Safari4+ */
 	background: -webkit-linear-gradient(top,  rgba(44,42,42,0) 0%,rgba(44,42,42,0) 1%,rgba(44,42,42,1) 100%); /* Chrome10+,Safari5.1+ */
@@ -139,9 +162,33 @@ header{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#002c2a2a', endColorstr='#2c2a2a',GradientType=0 ); /* IE6-9 */
 }
 
+#about p{
+	/* width: 52%; */
+	/* margin: 0 auto; */
+	padding: 8px 0;
+	font: 34px/42px 'akzidenz-grotesk_condensed_Rg', helvetica, sans-serif;
+}
+
+#videos .img img{
+	width: 100%;
+}
 
 #videos .info{
-	padding: 50px 0 30px 50px;
+	padding: 50px 30px;
+}
+
+#apparel{
+	box-sizing: border-box;
+	background: url(../images/Apparel.png) no-repeat top center;
+	background-size: cover;
+	width: 100%;
+	overflow: hidden;
+	padding: 90px 0;
+	color: #222;
+}
+
+#apparel .info{
+	padding: 5px 0;
 }
 
 
@@ -160,10 +207,14 @@ header{
   box-sizing: border-box;
 }
 
+.column{
+	margin: 0 auto;
+}
+
 .columns{
   float: left;
   box-sizing: border-box;
-  padding: 0 1.5%;
+  /* padding: 0 1.5%; */
 }
 
 .left{
