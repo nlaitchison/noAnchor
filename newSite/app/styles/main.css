@@ -17,7 +17,7 @@ html,body,div,form,fieldset,legend,label,h1,h2,h3,h4,h5,h6,p,ul,dl,dt,dd,figure,
 body{
 	font: 18px/30px Helvetica, sans-serif;
 	font-weight: lighter;
-	color: #f1eeef;
+	color: #DBDBDB;
 	/* letter-spacing: .5px; */
 }
 
@@ -33,6 +33,11 @@ h1{
 h2{
 	font-size: 45px;
 	padding-bottom: 10px;
+}
+
+h3{
+	font-size: 30px;
+	padding-bottom: 0;
 }
 
 p{
@@ -56,7 +61,7 @@ li{
 }
 
 .background-red{
-	background-color: #843232;
+	background-color: #62222B;/* blue #21434F red #843232 */
 }
 
 button{
@@ -66,7 +71,7 @@ button{
 	padding: 8px 12px;
 	font: 23px 'akzidenz-grotesk_condensed_Rg', helvetica, sans-serif;
 	text-transform: uppercase;
-	color: #f1eeef;
+	color: #DBDBDB;
 	margin-top: 10px;
 	cursor: pointer;
 }
@@ -74,8 +79,13 @@ button{
 button.grey-btn{
 	background-color: RGBA(80,80,80, .8);
 }
+
 button.red-btn{
-	background-color: RGBA(132,50,50, .8);
+	background-color: RGBA(98,34,43,.8);/*RGBA(132,50,50, .8)*/
+}
+
+button:hover{
+	opacity: .7;
 }
 
 
@@ -105,6 +115,10 @@ header{
 #icons li{
   padding-right: 8px;
   cursor: pointer;
+}
+
+#icons li:hover{
+	opacity: .6;
 }
 
 
@@ -169,6 +183,10 @@ header{
 	font: 34px/42px 'akzidenz-grotesk_condensed_Rg', helvetica, sans-serif;
 }
 
+#videos .img{
+	margin-bottom: -10px;
+}
+
 #videos .img img{
 	width: 100%;
 }
@@ -177,20 +195,46 @@ header{
 	padding: 50px 30px;
 }
 
+#apparel .info, #blog .info{
+	padding: 5px 0;
+}
+
 #apparel{
+	background: url(../images/apparel-2.jpg) no-repeat top center;
 	box-sizing: border-box;
-	background: url(../images/Apparel.png) no-repeat top center;
 	background-size: cover;
 	width: 100%;
 	overflow: hidden;
 	padding: 90px 0;
-	color: #222;
 }
 
-#apparel .info{
-	padding: 5px 0;
+#blog{
+	background: url(../images/blog-2.jpg) no-repeat top center;
+	box-sizing: border-box;
+	background-size: cover;
+	width: 100%;
+	overflow: hidden;
+	padding: 90px 0;
+	/* color: #2122; */
 }
 
+#blog-recent{
+	padding: 40px 0;
+}
+
+#blog-recent article{
+	padding: 0 25px;
+	font-size: 14px;
+	line-height: 26px;
+}
+
+article p.date{
+	font-size: 12px;
+	font-style: oblique;
+	opacity: .8;
+	color: #ccc;
+	padding: 0;
+}
 
 /* Grid ----------------- */
 
@@ -209,6 +253,7 @@ header{
 
 .column{
 	margin: 0 auto;
+	box-sizing: border-box;
 }
 
 .columns{
