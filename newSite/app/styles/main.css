@@ -21,7 +21,7 @@ body{
 	/* letter-spacing: .5px; */
 }
 
-h1, h2, h3{
+h1, h2, h3, nav ul{
 	font-family:'akzidenz-grotesk_condensed_Rg', helvetica, sans-serif;
 	text-transform: uppercase;
 }
@@ -102,10 +102,25 @@ header{
   float: right;
 }
 
+nav{
+	padding-top: 10px;
+}
+
+nav ul a{
+	font-size: 25px;
+	color: #DBDBDB;
+	text-decoration: none;
+	padding: 0 8px;
+}
+
 #icons{
+	padding-top: 45px;
+}
+
+nav, #icons{
   position: fixed;
-  padding-top: 20px;
-  right: 1.2%;
+  right: 1.2%; 
+  /* float: right; */
 }
 
 #icons ul{
