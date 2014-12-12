@@ -12,5 +12,6 @@ App.controller('LandingCtrl',['$scope', '$firebase', function($scope, $firebase)
 	
 	// if ref points to a data collection
 	$scope.blog = posts.$asArray();
+	console.log($scope.blog);
 
 }]);

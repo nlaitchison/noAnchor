@@ -66,7 +66,7 @@ encourage them to live against the grain.
 <section id="blog-recent" class="background-red">
 	<div class="grid-container">
 		<article class="four columns" ng-repeat="post in blog | reverse">
-			<h3>{{post.header}}</h3>
+			<h3>{{post.header}} {{post.$id}}</h3>
 			<p class="date">{{post.time}}</p>
 			<p> 
 				{{post.text}}
