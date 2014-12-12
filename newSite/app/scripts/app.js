@@ -15,10 +15,6 @@ $routeProvider
   })
   .when('/admin', {
     templateUrl: 'views/login.html',
-    controller: 'AuthCtrl'
-  })
-  .when('/admin/blog', {
-    templateUrl: 'views/editBlog.html',
     controller: 'AdminCtrl'
   })
   .otherwise({
@@ -30,30 +26,19 @@ App.run(['$rootScope', '$location', '$route', '$window', function($rootScope, $l
 
 	console.log('running');
 
-	/*
-console.log('location', $location.path());
-	
-*/
-
 	// Create a callback which logs the current auth state
 	function authDataCallback(authData) {
 	  if (authData) {
+		$rootScope.admin = {
+          'id' : authData.uid,
+        };
+        // $scope.$apply();
 	    console.log("app: User " + authData.uid + " is logged in with " + authData.provider);
-/*
-	    $location.path('/admin/blog');
-	    $route.reload();
-*/
-	    // $rootScope.user = authData.id; 
 	  } else {
-		// $rootScope.user = '';
+		$rootScope.admin = {
+          'id' : '',
+        };
 	    console.log("app: User is logged out");
-		
-		console.log('location', $location.path());
-		var path = $location.path();
-	
-		if(path == "/admin/blog"){
-			console.log('not authorized');
-		}
 	  }
 	}
 	
@@ -61,7 +46,7 @@ console.log('location', $location.path());
 	var ref = new Firebase("https://no-anchor.firebaseio.com");
 	ref.onAuth(authDataCallback);
 	
-	}]);
+}]);
 
 /*
 App.directive('fadeLogo', function($window) {
