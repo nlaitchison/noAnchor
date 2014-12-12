@@ -5,6 +5,7 @@
 
 App.controller('AdminCtrl',['$rootScope','$location', function($rootScope, $location){
 	
+	// console.log('admin user:',$rootScope.user);
 /*
 	function authDataCallback(authData) {
 	  if (authData) {

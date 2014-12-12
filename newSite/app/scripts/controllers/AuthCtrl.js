@@ -3,10 +3,13 @@
 /*global App*/
 /*global Firebase*/
 
-App.controller('AuthCtrl',['$rootScope', '$window', '$location', '$route', function($rootScope, $window, $location, $route){
+App.controller('AuthCtrl',['$scope', '$rootScope', '$window', '$location', '$route', function($scope, $rootScope, $window, $location, $route){
  	
 	// create new fb 
   	var ref = new Firebase("https://no-anchor.firebaseio.com");
+	$scope.admin = {
+      'id' : '',
+    };
   	
 	// login function
 	$rootScope.loginUser = function(){
@@ -29,6 +32,12 @@ App.controller('AuthCtrl',['$rootScope', '$window', '$location', '$route', funct
 	$rootScope.logoutUser = function(){
 		console.log('logout');
 		ref.unauth();
+		
+		$scope.admin = {
+      'id' : '',
+    };
+   //  $scope.$apply();
+    
 	};
 	
 	var changePage = function(){
@@ -43,12 +52,20 @@ App.controller('AuthCtrl',['$rootScope', '$window', '$location', '$route', funct
 	// if the user isn't the admin  
 	if(authData.uid != 'twitter:2361496574'){
 		// logout the user
+		$rootScope.user = '';
 		ref.unauth();
 	}else{
 		// keep user logged in
+		// $rootScope.user = authData.id;
 		console.log('auth ctrl: user authorized');
 		// take to edit pages
-		changePage();
+		// changePage();
+		$scope.admin = {
+			'id' : authData.uid,
+	  	};
+	  	$scope.$apply();
+	  	
+	  	console.log('ugh', $scope.admin);
 	}
 	};
 

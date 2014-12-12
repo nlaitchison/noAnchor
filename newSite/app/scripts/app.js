@@ -26,21 +26,34 @@ $routeProvider
   });
 });
 
-App.run(['$rootScope', '$location', '$route', function($rootScope, $location, $route){
+App.run(['$rootScope', '$location', '$route', '$window', function($rootScope, $location, $route, $window){
 
 	console.log('running');
+
 	/*
 console.log('location', $location.path());
 	
 */
+
 	// Create a callback which logs the current auth state
 	function authDataCallback(authData) {
 	  if (authData) {
 	    console.log("app: User " + authData.uid + " is logged in with " + authData.provider);
+/*
 	    $location.path('/admin/blog');
 	    $route.reload();
+*/
+	    // $rootScope.user = authData.id; 
 	  } else {
+		// $rootScope.user = '';
 	    console.log("app: User is logged out");
+		
+		console.log('location', $location.path());
+		var path = $location.path();
+	
+		if(path == "/admin/blog"){
+			console.log('not authorized');
+		}
 	  }
 	}
 	
