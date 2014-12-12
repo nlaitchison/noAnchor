@@ -14,7 +14,7 @@ $routeProvider
     controller: 'MainCtrl'
   })
   .when('/admin', {
-    templateUrl: 'views/login.html',
+    templateUrl: 'views/admin.html',
     controller: 'AdminCtrl'
   })
   .otherwise({

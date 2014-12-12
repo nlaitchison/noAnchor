@@ -52,16 +52,43 @@ App.controller('AdminCtrl',['$scope', '$rootScope', '$window', '$location', '$ro
 	        $scope.$apply()
 		}
 	};
-  	
-  	var blogPost = ref.child("blog");
-  	var cDate = new Date();
+	
+	$scope.addBlogPost = function(user){
+
+		console.log('addPost');
+		
+		var blogPost = ref.child("blog");
+		
+		var cDate = new Date();
+		console.log(user, cDate);
+		
+		var m = cDate.getMonth();
+		var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'];
+		var d = months[m] + ' ' + cDate.getDate() + ', ' + cDate.getFullYear();
+		console.log(d);
+		
 /*
-	blogPost.push({
-	  header: 'Testing',
-	  date: cDate,
-	  text: 'this is test text'  
-	});
+		blogPost.push({
+		  header: user.header,
+		  time: d,
+		  text: user.text,
+		  tags: user.tags  
+		});
 */
+		
+	};
+	
+/*
+	// Get a reference to our posts
+var ref = new Firebase("https://no-anchor.firebaseio.com/blog");
+// Attach an asynchronous callback to read the data at our posts reference
+ref.on("value", function(snapshot) {
+  console.log(snapshot.val());
+}, function (errorObject) {
+  console.log("The read failed: " + errorObject.code);
+});
+*/
+
 
 }]);
 

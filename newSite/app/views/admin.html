@@ -1,0 +1,23 @@
+
+<section>
+	<a ng-click="loginUser()" ng-hide="admin.id">
+        <p> Login with Twitter </p>
+    </a>
+    <a ng-click="logoutUser()" ng-show="admin.id">
+        <p> Logout with Twitter </p>
+    </a>
+</section>
+
+<p> admin {{admin.id}} </p>
+
+<section ng-show="admin.id">
+	<h2> Edit Blog </h2>
+	<form id="add-blog-post" ng-submit="addBlogPost(newPost)">
+		<input type="text" placeholder="Title" required="required" ng-model="newPost.header"/> 
+		<textarea type="text" required="required" ng-model="newPost.text">Text </textarea> 
+		<input type="text" placeholder="Team Tags ex. Jon Brown, Nicole Aitchison" ng-model="newPost.tags"/>
+		<input type="submit" value="Add Post" />
+	</form>
+<section>
+
+	
