@@ -17,15 +17,22 @@ $routeProvider
     templateUrl: 'views/login.html',
     controller: 'AuthCtrl'
   })
+  .when('/admin/blog', {
+    templateUrl: 'views/editBlog.html',
+    controller: 'AdminCtrl'
+  })
   .otherwise({
     redirectTo: '/'
   });
 });
 
-App.run(['$rootScope', function($rootScope){
+App.run(['$rootScope', '$location', function($rootScope, $location){
 
 	console.log('running');
-
+	/*
+console.log('location', $location.path());
+	
+*/
 	// Create a callback which logs the current auth state
 	function authDataCallback(authData) {
 	  if (authData) {
