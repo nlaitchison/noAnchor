@@ -13,44 +13,14 @@ $routeProvider
     templateUrl: 'views/main.html',
     controller: 'MainCtrl'
   })
+  .when('/admin', {
+    templateUrl: 'views/login.html',
+    controller: 'AuthCtrl'
+  })
   .otherwise({
     redirectTo: '/'
   });
 });
-
-App.run(['$firebaseSimpleLogin', '$rootScope','$location', '$firebase', 'FireUser', function($firebaseSimpleLogin, $rootScope, $location, $firebase, FireUser){
-
-    //reference to firebase
-    var db = new Firebase('https://bandmate.firebaseio.com');
-    //sets up simple login
-    $rootScope.loginObject = $firebaseSimpleLogin(db);
-
-    // if a user is logged in then
-    $rootScope.$on('$firebaseSimpleLogin:login', function(e, user){
-
-      // get the logged in users id that is stored in firebase
-      var userId = user.provider + user.id;
-
-      // then get this user from firebase and set it to the rootscope
-      $rootScope.currentUser = FireUser(userId);
-
-      // set the rootscope so user info can be displayed in views
-      $rootScope.currentUser.id = userId;
-      // $rootScope.currentUser.name = user.name;
-      $rootScope.currentUser.imgUrl = user.profile_image_url;
-
-      // check the location
-      // if the location is the landing page and a user is logged in
-      // go to the studio page
-      if($location.path() === '/'){
-        $location.path('/studio/' + $rootScope.currentUser.id);
-      }
-
-      console.log('root', $rootScope.currentUser.id);
-
-    });
-
-}]);
 
 /*
 App.directive('fadeLogo', function($window) {
