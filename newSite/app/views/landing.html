@@ -65,6 +65,15 @@ encourage them to live against the grain.
 
 <section id="blog-recent" class="background-red">
 	<div class="grid-container">
+		<article class="four columns" ng-repeat="post in blog | reverse">
+			<h3>{{post.header}}</h3>
+			<p class="date">{{post.time}}</p>
+			<p> 
+				{{post.text}}
+			</p>
+			<a href="#"><button class="grey-btn"type="button">Read More</button></a>
+		</article>
+<!--
 		<article class="four columns">
 			<h3>Post Header</h3>
 			<p class="date">Dec 1st 2014 - 12:30pm</p>
@@ -81,17 +90,8 @@ encourage them to live against the grain.
 			</p>
 			<a href="#"><button class="grey-btn"type="button">Read More</button></a>
 		</article>
-		<article class="four columns">
-			<h3>Post Header</h3>
-			<p class="date">Dec 1st 2014 - 12:30pm</p>
-			<p> 
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
-			</p>
-			<a href="#"><button class="grey-btn"type="button">Read More</button></a>
-		</article>
+-->
 	</div>
 </section>
 
-<footer>
-</footer>
 	

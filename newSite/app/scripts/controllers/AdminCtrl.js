@@ -3,40 +3,39 @@
 /*global App*/
 /*global Firebase*/
 
-App.controller('AdminCtrl',['$scope', '$rootScope', '$window', '$location', '$route', function($scope, $rootScope, $window, $location, $route){
- 	
+App.controller('AdminCtrl',['$scope', '$rootScope', function($scope, $rootScope){
 	// create new fb 
-  	var ref = new Firebase("https://no-anchor.firebaseio.com");
+	var ref = new Firebase('https://no-anchor.firebaseio.com');
   	
 	// login function
 	$rootScope.loginUser = function(){
 		console.log('login');
 	
 		// twitter login auth
-		ref.authWithOAuthPopup("twitter", function(error, authData) {
+		ref.authWithOAuthPopup('twitter', function(error, authData) {
 			if (error) {
-				console.log("Login Failed!", error);
-			} else { 
-				console.log("Authenticated successfully with payload:", authData);
+				console.log('Login Failed!', error);
+			} else {
+				console.log('Authenticated successfully with payload:', authData);
 				checkUser(authData);
 			}
 		}, {
-		  remember: "sessionOnly"
+			remember: 'sessionOnly'
 		});
 	};
   
 	// logout function
 	$rootScope.logoutUser = function(){
 		console.log('logout');
-		ref.unauth();    
+		ref.unauth();
 	};
 
 	
 	// check to make sure the user is an admin
 	var checkUser = function(authData){
-		console.log('check user', authData.uid); 
+		console.log('check user', authData.uid);
 		// if the user isn't the admin  
-		if(authData.uid != 'twitter:2361496574'){
+		if(authData.uid !== 'twitter:2361496574'){
 			// logout the user
 			$rootScope.admin = {
 	          'id' : '',
@@ -49,7 +48,7 @@ App.controller('AdminCtrl',['$scope', '$rootScope', '$window', '$location', '$ro
 	        $rootScope.admin = {
 	          'id' : authData.uid,
 	        };
-	        $scope.$apply()
+	        $scope.$apply();
 		}
 	};
 	
@@ -57,7 +56,7 @@ App.controller('AdminCtrl',['$scope', '$rootScope', '$window', '$location', '$ro
 
 		console.log('addPost');
 		
-		var blogPost = ref.child("blog");
+		var blogPost = ref.child('blog');
 		
 		var cDate = new Date();
 		console.log(user, cDate);
@@ -67,29 +66,13 @@ App.controller('AdminCtrl',['$scope', '$rootScope', '$window', '$location', '$ro
 		var d = months[m] + ' ' + cDate.getDate() + ', ' + cDate.getFullYear();
 		console.log(d);
 		
-/*
 		blogPost.push({
-		  header: user.header,
-		  time: d,
-		  text: user.text,
-		  tags: user.tags  
+			header: user.header,
+			time: d,
+			text: user.text,
+			tags: user.tags  
 		});
-*/
 		
 	};
-	
-/*
-	// Get a reference to our posts
-var ref = new Firebase("https://no-anchor.firebaseio.com/blog");
-// Attach an asynchronous callback to read the data at our posts reference
-ref.on("value", function(snapshot) {
-  console.log(snapshot.val());
-}, function (errorObject) {
-  console.log("The read failed: " + errorObject.code);
-});
-*/
-
 
 }]);
-
-  
