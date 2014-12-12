@@ -26,7 +26,7 @@ $routeProvider
   });
 });
 
-App.run(['$rootScope', '$location', function($rootScope, $location){
+App.run(['$rootScope', '$location', '$route', function($rootScope, $location, $route){
 
 	console.log('running');
 	/*
@@ -36,9 +36,11 @@ console.log('location', $location.path());
 	// Create a callback which logs the current auth state
 	function authDataCallback(authData) {
 	  if (authData) {
-	    console.log("User " + authData.uid + " is logged in with " + authData.provider);
+	    console.log("app: User " + authData.uid + " is logged in with " + authData.provider);
+	    $location.path('/admin/blog');
+	    $route.reload();
 	  } else {
-	    console.log("User is logged out");
+	    console.log("app: User is logged out");
 	  }
 	}
 	

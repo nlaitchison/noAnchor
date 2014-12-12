@@ -3,7 +3,7 @@
 /*global App*/
 /*global Firebase*/
 
-App.controller('AuthCtrl',['$rootScope', '$location', function($rootScope, $location){
+App.controller('AuthCtrl',['$rootScope', '$window', '$location', '$route', function($rootScope, $window, $location, $route){
  	
 	// create new fb 
   	var ref = new Firebase("https://no-anchor.firebaseio.com");
@@ -31,6 +31,12 @@ App.controller('AuthCtrl',['$rootScope', '$location', function($rootScope, $loca
 		ref.unauth();
 	};
 	
+	var changePage = function(){
+		// $location.path('/admin/blog');
+		$window.location.assign('http://127.0.0.1:9000/#/admin/blog');
+		$route.reload();
+	};
+	
 	// check to make sure the user is an admin
 	var checkUser = function(authData){
 	console.log('check user', authData.uid); 
@@ -39,11 +45,10 @@ App.controller('AuthCtrl',['$rootScope', '$location', function($rootScope, $loca
 		// logout the user
 		ref.unauth();
 	}else{
-		//redirect user
-		$location.path('/admin/blog');
 		// keep user logged in
-		console.log('user authorized');
-		
+		console.log('auth ctrl: user authorized');
+		// take to edit pages
+		changePage();
 	}
 	};
 

@@ -5,18 +5,19 @@
 
 App.controller('AdminCtrl',['$rootScope','$location', function($rootScope, $location){
 	
+/*
 	function authDataCallback(authData) {
 	  if (authData) {
-	    console.log('admin logged in');
+	    console.log('admin ctrl: admin logged in');
 	  } else {
-	    console.log('admin is logged out');
-	    $location.path('/admin');
+	    console.log('admin ctrl: admin is logged out');
 	    
 	  }
 	}
 	
 	// check for user
 	authDataCallback();
+*/
 
 }]);
 
