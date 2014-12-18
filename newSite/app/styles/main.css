@@ -91,11 +91,19 @@ button:hover{
 
 /* Header & Navigation ----------------- */
 
-
 header{
 	box-sizing: border-box;
 	position: fixed;
 	z-index: 8;
+}
+
+#header-bg{
+	background: #fff;
+	height: 90px;
+	position: fixed;
+	width: 100%;
+	z-index: 7;
+	border-bottom: 1px solid #000;
 }
 
 #icons, #icons ul{
@@ -250,6 +258,15 @@ article p.date{
 	color: #ccc;
 	padding: 0;
 }
+
+
+/* Blog ----------------- */
+
+
+#blog-container{
+	padding-top: 90px;
+}
+
 
 /* Grid ----------------- */
 

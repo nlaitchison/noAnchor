@@ -17,6 +17,10 @@ $routeProvider
     templateUrl: 'views/admin.html',
     controller: 'AdminCtrl'
   })
+    .when('/blog', {
+    templateUrl: 'views/blog.html',
+    controller: 'BlogCtrl'
+  })
   .otherwise({
     redirectTo: '/'
   });
