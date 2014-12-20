@@ -13,9 +13,21 @@
 	<section ng-show="admin.id">
 		<h2> Edit Blog </h2>
 		<form id="add-blog-post" ng-submit="addBlogPost(newPost)">
-			<input type="text" placeholder="Title" required="required" ng-model="newPost.header"/> 
-			<textarea type="text" required="required" ng-model="newPost.text">Text </textarea> 
+			<input type="text" placeholder="Title" ng-model="newPost.header"/> 
+			<textarea type="text" ng-model="newPost.text">Text </textarea> 
 			<input type="text" placeholder="Team Tags ex. Jon Brown, Nicole Aitchison" ng-model="newPost.tags"/>
+			<div class="update_profile_pic">
+			<div flow-init="{singleFile:true}" flow-name="obj.flow" >
+				<div ng-show="!obj.flow.files.length">
+				 	<img id="img" ng-src="{{newPost.img}}" />
+				</div>
+				<div ng-show="obj.flow.files.length">
+					<img flow-img="obj.flow.files[0]"/>
+				</div>
+				<div class="update_container">
+					<span class="update_txt" flow-btn>Update Profile Picture</span>
+				</div>
+			</div>
 			<input type="submit" value="Add Post" />
 		</form>
 	<section>

@@ -51,28 +51,79 @@ App.controller('AdminCtrl',['$scope', '$rootScope', function($scope, $rootScope)
 	        $scope.$apply();
 		}
 	};
-	
-	$scope.addBlogPost = function(user){
 
-		console.log('addPost');
+	$scope.obj = {};
+
+	
+	$scope.addBlogPost = function(post){
+		post.img = '';
 		
 		var blogPost = ref.child('blog');
 		
-		var cDate = new Date();
-		console.log(user, cDate);
-		
+		var cDate = new Date();		
 		var m = cDate.getMonth();
 		var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'];
 		var d = months[m] + ' ' + cDate.getDate() + ', ' + cDate.getFullYear();
-		console.log(d);
+		// console.log(d);
+		console.log(post);
+
+		console.log($scope.obj.flow.files[0].file);
+		// console.log($flow.files[0]);
+
+		var fileReader = new FileReader();
+  		fileReader.readAsDataURL($scope.obj.flow.files[0].file);
+  		fileReader.onload = function (event) {
+            console.log('file data', event.target.result);
+            post.img= event.target.result;
+            
+            // update the user data
+			// $scope.user.put().then(function(){});
+
+
+        console.log('meow:', post.img);
 		
 		blogPost.push({
-			header: user.header,
+			header: post.header,
+			img: post.img + '',
 			time: d,
-			text: user.text,
-			tags: user.tags  
+			text: post.text,
+			tags: post.tags  
 		});
+
+        };
+
 		
 	};
+
+	$scope.$on('flow::fileAdded', function (event, $flow, flowFile) {
+		console.log('meow');
+  		var fileReader = new FileReader();
+  		fileReader.readAsDataURL(flowFile.file);
+  		fileReader.onload = function (event) {
+            console.log('file data', event.target.result);
+            $scope.post.img = event.target.result;
+            console.log(scope.post.img);
+            // update the user data
+			// $scope.user.put().then(function(){});
+        };
+	});
+
+// $scope.succes = function(m){
+// 	console.log('meow', m);
+// }
+// 	 $scope.$on('flow::fileAdded', function (event, $flow, flowFile) {
+//                 var reader = new FileReader();
+//                 reader.onload = function(event) {
+//                     $scope.filedata = event.target.result.substr(event.target.result.indexOf('base64')+7);
+//                     $scope.filename = flowFile.file.name;
+//                 };
+//                 reader.readAsDataURL(flowFile.file);
+//                 console.log('meow');
+//             });
+
+	// $scope.$on('flow::fileAdded', function (event, $flow, flowFile) {
+	// 	event.preventDefault();//prevent file from uploading
+	// 	console.log('meow');
+	// });
 
 }]);

@@ -5,7 +5,8 @@ var App = angular.module('newSiteApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'firebase'
+  'firebase',
+  'flow'
 ]);
 App.config(function ($routeProvider) {
 $routeProvider
@@ -50,6 +51,21 @@ App.run(['$rootScope', '$location', function($rootScope, $location){
 	var ref = new Firebase('https://no-anchor.firebaseio.com');
 	ref.onAuth(authDataCallback);
 	
+}]);
+
+App.config(['flowFactoryProvider', function (flowFactoryProvider) {
+  flowFactoryProvider.defaults = {
+    target: '',
+    permanentErrors: [500, 501],
+    maxChunkRetries: 1,
+    chunkRetryInterval: 5000,
+    simultaneousUploads: 1
+  };
+  flowFactoryProvider.on('catchAll', function (event) {
+    console.log('catchAll', arguments);
+  });
+  // Can be used with different implementations of Flow.js
+  // flowFactoryProvider.factory = fustyFlowFactory;
 }]);
 
 /*
