@@ -17,17 +17,35 @@
 			<textarea type="text" ng-model="newPost.text">Text </textarea> 
 			<input type="text" placeholder="Team Tags ex. Jon Brown, Nicole Aitchison" ng-model="newPost.tags"/>
 			<div class="update_profile_pic">
-			<div flow-init="{singleFile:true}" flow-name="obj.flow" >
+
+			<div flow-init="{singleFile:true}" flow-name="obj.flow" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
 				<div ng-show="!obj.flow.files.length">
 				 	<img id="img" ng-src="{{newPost.img}}" />
 				</div>
 				<div ng-show="obj.flow.files.length">
-					<img flow-img="obj.flow.files[0]"/>
+					<!-- <img flow-img="obj.flow.files[0]"/> -->
+					{{obj.flow.files[0].name}}
 				</div>
 				<div class="update_container">
-					<span class="update_txt" flow-btn>Update Profile Picture</span>
+					<span class="update_txt" flow-btn>Upload Preview Image</span>
 				</div>
 			</div>
+
+			<div flow-init flow-name="objs.flow" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
+				<div ng-show="!objs.flow.files.length">
+				 	<img id="img" ng-src="{{newPost.img}}" />
+				</div>
+				<div ng-show="objs.flow.files.length">
+					<!-- <img flow-img="obj.flow.files[0]"/> -->
+					<p ng-repeat="o in objs.flow.files">
+						{{o.name}}
+					</p>
+				</div>
+				<span class="btn" flow-btn flow-directory ng-show="$flow.supportDirectory"><i class="icon icon-folder-open"></i>
+			        Upload Folder
+			      </span>
+			</div>
+
 			<input type="submit" value="Add Post" />
 		</form>
 	<section>

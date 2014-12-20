@@ -56,7 +56,7 @@ App.controller('AdminCtrl',['$scope', '$rootScope', function($scope, $rootScope)
 
 	
 	$scope.addBlogPost = function(post){
-		post.img = '';
+		post.previewImg = '';
 		
 		var blogPost = ref.child('blog');
 		
@@ -67,6 +67,9 @@ App.controller('AdminCtrl',['$scope', '$rootScope', function($scope, $rootScope)
 		// console.log(d);
 		console.log(post);
 
+		post.tags = post.tags.split(',');
+		console.log(post.tags);
+
 		console.log($scope.obj.flow.files[0].file);
 		// console.log($flow.files[0]);
 
@@ -74,17 +77,17 @@ App.controller('AdminCtrl',['$scope', '$rootScope', function($scope, $rootScope)
   		fileReader.readAsDataURL($scope.obj.flow.files[0].file);
   		fileReader.onload = function (event) {
             console.log('file data', event.target.result);
-            post.img= event.target.result;
+            post.previewImg= event.target.result;
             
             // update the user data
 			// $scope.user.put().then(function(){});
 
 
-        console.log('meow:', post.img);
+        console.log('meow:', post.previewImg);
 		
 		blogPost.push({
 			header: post.header,
-			img: post.img + '',
+			previewImg: post.previewImg + '',
 			time: d,
 			text: post.text,
 			tags: post.tags  
