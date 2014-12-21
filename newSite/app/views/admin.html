@@ -1,4 +1,5 @@
-<div>
+
+<div id="admin" class="grid-container">
 	<section>
 		<a ng-click="loginUser()" ng-hide="admin.id">
 	        <p> Login with Twitter </p>
@@ -8,45 +9,54 @@
 	    </a>
 	</section>
 
-	<p> admin {{admin.id}} </p>
+	<!-- <p> admin {{admin.id}} </p> -->
 
-	<section ng-show="admin.id">
-		<h2> Edit Blog </h2>
-		<form id="add-blog-post" ng-submit="addBlogPost(newPost)">
-			<input type="text" placeholder="Title" ng-model="newPost.header"/> 
-			<textarea type="text" ng-model="newPost.text">Text </textarea> 
-			<input type="text" placeholder="Team Tags ex. Jon Brown, Nicole Aitchison" ng-model="newPost.tags"/>
-			<div class="update_profile_pic">
+	<div ng-show="admin.id">
+		<section id="admin-blog">
+			<div class="four columns background-red">
+				<h2> Edit Blog </h2>
+				<form id="add-blog-post" ng-submit="addBlogPost(newPost)">
+					<input type="text" placeholder="Title" ng-model="newPost.header"/> 
+					<textarea type="text" ng-model="newPost.text">Text </textarea> 
+					<input type="text" placeholder="Team Tags ex. Jon Brown, Nicole Aitchison" ng-model="newPost.tags"/>
+					<div class="clear-fix"></div>
+					<div flow-init="{singleFile:true}" flow-name="obj.flow" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
+						<div ng-show="!obj.flow.files.length">
+						 	<img id="img" ng-src="{{newPost.img}}" />
+						</div>
+						<span class="upload-btn" flow-btn>Upload Preview Image</span>
+						<div ng-show="obj.flow.files.length">
+							<!-- <img flow-img="obj.flow.files[0]"/> -->
+							{{obj.flow.files[0].name}}
+						</div>
+						
+					</div>
 
-			<div flow-init="{singleFile:true}" flow-name="obj.flow" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
-				<div ng-show="!obj.flow.files.length">
-				 	<img id="img" ng-src="{{newPost.img}}" />
-				</div>
-				<div ng-show="obj.flow.files.length">
-					<!-- <img flow-img="obj.flow.files[0]"/> -->
-					{{obj.flow.files[0].name}}
-				</div>
-				<div class="update_container">
-					<span class="update_txt" flow-btn>Upload Preview Image</span>
-				</div>
+					<div flow-init flow-name="objs.flow" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
+						<div ng-show="!objs.flow.files.length">
+						 	<img id="img" ng-src="{{newPost.img}}" />
+						</div>
+						<span class="upload-btn " flow-btn flow-directory>Upload Folder</span>
+						<div ng-show="objs.flow.files.length">
+							<!-- <img flow-img="obj.flow.files[0]"/> -->
+							<p ng-repeat="o in objs.flow.files">
+								{{o.name}}
+							</p>
+						</div>
+						
+					</div>
+					<input type="submit" value="Add Post" class="grey-btn"/>
+				</form>
+			</div>
+			<div class="eight columns background-grey">
+				<article class="two columns blog-pre" ng-repeat="post in blog | reverse">
+					<h3>{{post.header}}</h3>
+					<p class="date">{{post.time}}</p>
+					<img src="{{post.previewImg}}">
+					<button class="red-btn" type="button" ng-click="deleteBlogPost(post.$id)">x</button></a>
+				</article>
 			</div>
 
-			<div flow-init flow-name="objs.flow" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
-				<div ng-show="!objs.flow.files.length">
-				 	<img id="img" ng-src="{{newPost.img}}" />
-				</div>
-				<div ng-show="objs.flow.files.length">
-					<!-- <img flow-img="obj.flow.files[0]"/> -->
-					<p ng-repeat="o in objs.flow.files">
-						{{o.name}}
-					</p>
-				</div>
-				<span class="btn" flow-btn flow-directory ng-show="$flow.supportDirectory"><i class="icon icon-folder-open"></i>
-			        Upload Folder
-			      </span>
-			</div>
-
-			<input type="submit" value="Add Post" />
-		</form>
-	<section>
+		</section>
+	<div>
 </div>	

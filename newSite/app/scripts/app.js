@@ -39,6 +39,7 @@ App.run(['$rootScope', '$location', function($rootScope, $location){
         };
         // $scope.$apply();
 	    console.log('app: User ' + authData.uid + ' is logged in with ' + authData.provider);
+
 	  } else {
 		$rootScope.admin = {
           'id' : '',

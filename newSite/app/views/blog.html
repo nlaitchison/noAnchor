@@ -1,9 +1,11 @@
+<div ng-include src="'views/header.html'"></div>
+
 <div>
 	<div id="header-bg">
 	</div>
-	<section id="blog-container">
-		<article class="three columns" ng-repeat="post in blog | reverse">
-			<h3>{{post.header}} {{post.$id}}</h3>
+	<section id="blog-container" class="grid-container">
+		<article class="three columns blog-pre" ng-repeat="post in blog | reverse">
+			<h3>{{post.header}}</h3>
 			<img src="{{post.previewImg}}">
 			<p class="date">{{post.time}}</p>
 			<p> 

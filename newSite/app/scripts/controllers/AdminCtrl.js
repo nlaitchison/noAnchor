@@ -3,9 +3,17 @@
 /*global App*/
 /*global Firebase*/
 
-App.controller('AdminCtrl',['$scope', '$rootScope', function($scope, $rootScope){
+App.controller('AdminCtrl',['$scope', '$rootScope', '$firebase', function($scope, $rootScope, $firebase){
+	
 	// create new fb 
 	var ref = new Firebase('https://no-anchor.firebaseio.com');
+
+	// get blog posts from fb
+	var refBlog = ref.child('blog');
+	var posts = $firebase(refBlog);
+	$scope.blog = posts.$asArray();
+
+	console.log('blog', $scope.blog);
   	
 	// login function
 	$rootScope.loginUser = function(){
@@ -30,7 +38,6 @@ App.controller('AdminCtrl',['$scope', '$rootScope', function($scope, $rootScope)
 		ref.unauth();
 	};
 
-	
 	// check to make sure the user is an admin
 	var checkUser = function(authData){
 		console.log('check user', authData.uid);
@@ -58,7 +65,7 @@ App.controller('AdminCtrl',['$scope', '$rootScope', function($scope, $rootScope)
 	$scope.addBlogPost = function(post){
 		post.previewImg = '';
 		
-		var blogPost = ref.child('blog');
+		// var blogPost = ref.child('blog');
 		
 		var cDate = new Date();		
 		var m = cDate.getMonth();
@@ -75,58 +82,31 @@ App.controller('AdminCtrl',['$scope', '$rootScope', function($scope, $rootScope)
 
 		var fileReader = new FileReader();
   		fileReader.readAsDataURL($scope.obj.flow.files[0].file);
+  		// console.log($scope.objs);
+  		// fileReader.readAsDataURL($scope.objs.flow.files[1].file);
   		fileReader.onload = function (event) {
             console.log('file data', event.target.result);
-            post.previewImg= event.target.result;
-            
-            // update the user data
-			// $scope.user.put().then(function(){});
+            post.previewImg = event.target.result;
+			
 
-
-        console.log('meow:', post.previewImg);
+        // console.log('meow:', p);
 		
-		blogPost.push({
-			header: post.header,
-			previewImg: post.previewImg + '',
-			time: d,
-			text: post.text,
-			tags: post.tags  
-		});
+			refBlog.push({
+				header: post.header,
+				previewImg: post.previewImg + '',
+				time: d,
+				text: post.text,
+				tags: post.tags  
+			});
 
         };
-
 		
 	};
 
-	$scope.$on('flow::fileAdded', function (event, $flow, flowFile) {
-		console.log('meow');
-  		var fileReader = new FileReader();
-  		fileReader.readAsDataURL(flowFile.file);
-  		fileReader.onload = function (event) {
-            console.log('file data', event.target.result);
-            $scope.post.img = event.target.result;
-            console.log(scope.post.img);
-            // update the user data
-			// $scope.user.put().then(function(){});
-        };
-	});
+	$scope.deleteBlogPost = function(id){
+		console.log('delete', id);
 
-// $scope.succes = function(m){
-// 	console.log('meow', m);
-// }
-// 	 $scope.$on('flow::fileAdded', function (event, $flow, flowFile) {
-//                 var reader = new FileReader();
-//                 reader.onload = function(event) {
-//                     $scope.filedata = event.target.result.substr(event.target.result.indexOf('base64')+7);
-//                     $scope.filename = flowFile.file.name;
-//                 };
-//                 reader.readAsDataURL(flowFile.file);
-//                 console.log('meow');
-//             });
-
-	// $scope.$on('flow::fileAdded', function (event, $flow, flowFile) {
-	// 	event.preventDefault();//prevent file from uploading
-	// 	console.log('meow');
-	// });
+		posts.$remove(id);
+	};
 
 }]);

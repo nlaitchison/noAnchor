@@ -64,7 +64,11 @@ li{
 	background-color: #62222B;/* blue #21434F red #843232 */
 }
 
-button{
+.background-grey{
+	background-color: #777;
+}
+
+button, input[type=submit]{
 	letter-spacing: 1px;
 	border: none;
 	border-radius: 2px;
@@ -76,11 +80,11 @@ button{
 	cursor: pointer;
 }
 
-button.grey-btn{
+.grey-btn{
 	background-color: RGBA(80,80,80, .8);
 }
 
-button.red-btn{
+.red-btn{
 	background-color: RGBA(98,34,43,.8);/*RGBA(132,50,50, .8)*/
 }
 
@@ -142,6 +146,40 @@ nav, #icons{
 
 #icons li:hover{
 	opacity: .6;
+}
+
+
+/* Admin ----------------- */
+
+#admin {
+	/*color: #212121;*/
+}
+
+.blog-pre img{
+	width: 100%;
+}
+
+#admin .columns{
+	padding: 20px;
+}
+
+#admin article.columns{
+	padding: 0 8px;
+}
+
+#admin form input[type=text], #admin form textarea{
+	clear: both;
+	float: left;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 8px;
+	margin-bottom: 5px;
+	border-radius: 2px;
+	border: 0; 
+}
+
+#admin .upload-btn{
+	font-size: 14px;
 }
 
 
